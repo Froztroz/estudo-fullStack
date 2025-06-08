@@ -1,6 +1,6 @@
 const pup = require ("puppeteer");
 
-const URL = "https://www.kabum.com.br/busca/rx-7900-xtx";
+const URL = "https://www.kabum.com.br/";
 const searchFor = "RX 7900 XTX";
 
 let c = 1;
@@ -12,6 +12,11 @@ let c = 1;
 
     await page.goto(URL);
     console.log("Fui para a URL");
+
+    await page.waitForSelector('input[type="search"]');
+    await page.type('input[type="search"]', searchFor);
+    await page.keyboard.press('Enter');
+    await page.waitForNavigation();
 
     const links = await page.$$eval('.sc-27518a44-3.hLEhJe.productCard > a', el => el.map(link => link.href));
 
@@ -30,6 +35,6 @@ let c = 1;
         c++
     }    
 
-    await browser.close;
+    await browser.close();
 
 })();
