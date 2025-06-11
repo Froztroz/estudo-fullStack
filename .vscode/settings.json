@@ -4,6 +4,7 @@
             "previewLimit": 50,
             "server": "192.168.1.145",
             "port": 5432,
+            "askForPassword": true,
             "driver": "PostgreSQL",
             "name": "CCG",
             "username": "postgres",
