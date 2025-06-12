@@ -28,12 +28,20 @@ async function kabumScraping(URL, searchFor) {
         const precos = Array.from(document.querySelectorAll('.priceCard')).map(el => el.innerText.trim());
         // Coleta todas as condições de pagamento
         const condicoes = Array.from(document.querySelectorAll('.priceTextCard')).map(el => el.innerText.trim());
+        // Coleta a data e hora em que realizou a função
+        const now = new Date();
+        const criado_dia = now.toISOString().split('T')[0]; // "2025-06-11"
+        const criado_hora = now.toTimeString().slice(0, 5); // "19:55"
+        const site = 'Kabum';
 
         // Junta tudo em um array de objetos
         return nomes.map((nome, i) => ({
             nome,
             preco: precos[i] || '',
-            condicao: condicoes[i] || ''
+            condicao: condicoes[i] || '',
+            criado_dia,
+            criado_hora,
+            site
         }));
     });
 
