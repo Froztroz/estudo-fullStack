@@ -1,2 +1,2 @@
 # estudo-fullStack
-Repositorio especifico para salvar andamento do estudo fullstack
+Repositório específico para salvar andamento do estudo fullstack
